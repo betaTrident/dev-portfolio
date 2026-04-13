@@ -1,0 +1,246 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>THE ARCHITECT | Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#39485a",
+                    "surface": "#131313",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#461f00",
+                    "tertiary-container": "#df7412",
+                    "surface-tint": "#adc6ff",
+                    "surface-variant": "#353534",
+                    "error": "#ffb4ab",
+                    "on-tertiary-fixed-variant": "#723600",
+                    "primary-container": "#4d8eff",
+                    "tertiary-fixed": "#ffdcc6",
+                    "on-primary": "#002e6a",
+                    "surface-container": "#201f1f",
+                    "on-secondary-container": "#a7b6cc",
+                    "surface-container-lowest": "#0e0e0e",
+                    "secondary-fixed": "#d4e4fa",
+                    "on-secondary": "#233143",
+                    "background": "#131313",
+                    "on-background": "#e5e2e1",
+                    "primary-fixed": "#d8e2ff",
+                    "on-surface": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-low": "#1c1b1b",
+                    "on-tertiary": "#502400",
+                    "surface-dim": "#131313",
+                    "on-secondary-fixed": "#0d1c2d",
+                    "inverse-primary": "#005ac2",
+                    "inverse-on-surface": "#313030",
+                    "error-container": "#93000a",
+                    "on-tertiary-fixed": "#311400",
+                    "on-primary-fixed": "#001a42",
+                    "on-surface-variant": "#c2c6d6",
+                    "outline-variant": "#424754",
+                    "primary-fixed-dim": "#adc6ff",
+                    "primary": "#adc6ff",
+                    "on-secondary-fixed-variant": "#39485a",
+                    "on-error": "#690005",
+                    "surface-container-highest": "#353534",
+                    "tertiary-fixed-dim": "#ffb786",
+                    "outline": "#8c909f",
+                    "on-primary-container": "#00285d",
+                    "surface-bright": "#393939",
+                    "on-primary-fixed-variant": "#004395",
+                    "secondary": "#b9c8de",
+                    "tertiary": "#ffb786",
+                    "secondary-fixed-dim": "#b9c8de",
+                    "surface-container-high": "#2a2a2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30">
+<!-- TopAppBar from JSON -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl no-border bg-gradient-to-b from-[#131313] to-transparent">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+<span class="text-xl font-black tracking-tighter text-[#e5e2e1]" style=""><span style="font-family: Inter; background-color: rgb(19, 19, 19);">THE AR(K)TECH<br></span></span>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] font-medium tracking-tight text-sm">
+<a class="text-[#c2c6d6] hover:text-[#e5e2e1] transition-colors scale-95 active:scale-90 transition-transform" href="#" style="">Home</a>
+<a class="text-[#adc6ff] font-bold border-b-2 border-[#adc6ff] pb-1 scale-95 active:scale-90 transition-transform" href="#" style="">Projects</a>
+<a class="text-[#c2c6d6] hover:text-[#e5e2e1] transition-colors scale-95 active:scale-90 transition-transform" href="#" style="">Experience</a>
+<a class="text-[#c2c6d6] hover:text-[#e5e2e1] transition-colors scale-95 active:scale-90 transition-transform" href="#" style="">Contact</a>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all" style="">
+                Resume
+            </button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section Header -->
+<header class="mb-20">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="font-label text-primary tracking-[0.2em] text-xs uppercase mb-4 block" style="">Portfolio Gallery</span>
+<h1 class="text-5xl md:text-7xl font-headline font-black tracking-tighter leading-[0.9] text-on-surface" style="">
+                        Engineered <br> Solutions.
+                    </h1>
+</div>
+<div class="max-w-sm text-on-surface-variant font-body leading-relaxed text-body-lg" style="">
+                    A curated selection of full-stack engineering projects, ranging from AI integration to IoT hardware design. 
+                </div>
+</div>
+</header>
+<!-- Project Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Project 1: MockAI -->
+<article class="group relative flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-500">
+<div class="aspect-video overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Futuristic AI interface concept with glowing circuit patterns and digital human silhouette in deep blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd-r25oYMP7BKcaKW2geObWQdJuuFY0zGSv_LklDiWb6OGOkV3ItXc84_KZlMIF3C_f2rd54KEYS1AxUcBTwQt9zVRmqd1OSVakciUhh-9naL0KSQvZfClXYCl9cbLz1uC7x4yHRfF0yv8gq9ovU6BmfsZHk9-exGnvJpDwa2XDkw7venxX00nO3rtociMO0G7NEb86DRfbNbo-0J7NGo4dQHUBUR9mys2H4f3nROTQtHQLzUfXlPtu5gUbTgKRLQqN69N28A-ylU" style="">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest" style="">Web App</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest" style="">AI &amp; Gemini API</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-3 tracking-tight" style="">MockAI</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-8" style="">
+                        Next-generation mock interview platform utilizing Gemini API to simulate technical recruiter behavior and provide real-time behavioral analysis.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Next.js</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Tailwind</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">PostgreSQL</span>
+</div>
+<div class="mt-auto flex gap-4">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all" href="#" style="">
+                            Live Demo <span class="material-symbols-outlined text-sm" style="">north_east</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-bold text-sm transition-all" href="#" style="">
+                            GitHub Repo <span class="material-symbols-outlined text-sm" style="">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 2: Barangay Health Center -->
+<article class="group relative flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-500 md:mt-24">
+<div class="aspect-video overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Clean medical interface on a modern tablet showing patient records and health charts with soft white and blue lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ9y-beHxxjbyopTW3YXMYFgKzzqgBwHlQ18UtGYzcSBG4l0BpTa4tPEvL2AwP945Bftvo1fcH2ImSFdGGl-i2b8d4yhtLsvJz0q5fzozUOsa2zr_6nAH8xSC4ggTL_OY2QT8QrV7qUxDjz40ZaV1tCU_sy3RiK5NzrGaZuB-y-MA-w1QlTqoUKtmVnoVPbYRa8OpESxw8aLAqemFMycWkoXTvWjqJiQGf014EOM-puGy1J0ggVQ2quwjENOxNRQ9vaEMrIyG_9Sw" style="">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest" style="">Management System</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-3 tracking-tight" style="">Barangay Health Center MS</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-8" style="">
+                        Centralized healthcare management system designed for local government units, focusing on patient records, medicine inventory, and automated scheduling.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Laravel</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">MySQL</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Alpine.js</span>
+</div>
+<div class="mt-auto flex gap-4">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all" href="#" style="">
+                            Live Demo <span class="material-symbols-outlined text-sm" style="">north_east</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-bold text-sm transition-all" href="#" style="">
+                            GitHub Repo <span class="material-symbols-outlined text-sm" style="">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 3: Coffee Shop POS -->
+<article class="group relative flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-500">
+<div class="aspect-video overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Minimalist coffee shop interior with dark tones, overhead lighting, and a focused view of a high-end espresso machine" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzvUcfLMuPEWX8dQrT06J0dgrKlmC9Ld1i48sFcBhZbbXdjGAINf5pGKdnHvZ6tc7sJvLg9BpYHg8FQ__Tuv46Ks11N651lrbyrtrLxTA-ZNQk5rQV870r9IJeSTL3_3USGq9pccDAnGtE0d4p9O3IbWhEt3VioNL-Sm9MAL5FqsMTZ-2LZMVPQHw2hPRmTuWThpslAM-ouKQwtzRWFoR6yh-UKIrJTGtbul0wZmCtN1taZNYtRt5c0sfqB47_gwHSE6O-IQdZ0sA" style="">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest" style="">E-Commerce</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-3 tracking-tight" style="">Coffee Shop POS</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-8" style="">
+                        A high-performance Point of Sale system featuring real-time inventory tracking, staff management, and dynamic receipt generation.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">React</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Node.js</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">MongoDB</span>
+</div>
+<div class="mt-auto flex gap-4">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all" href="#" style="">
+                            Live Demo <span class="material-symbols-outlined text-sm" style="">north_east</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-bold text-sm transition-all" href="#" style="">
+                            GitHub Repo <span class="material-symbols-outlined text-sm" style="">code</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Project 4: Dual-Axis Solar Tracking -->
+<article class="group relative flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-500 md:mt-24">
+<div class="aspect-video overflow-hidden bg-surface-container-highest">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Solar panel array against a twilight sky with electric blue lighting and precise mechanical details of sun-tracking pivots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0oIvoei9ch0tP96H3VjxupI8s8DmXanTQo6xNOwPYT9y-a4J6lTQ8n1YvhBaJx9H0XrBILeDBpnKpGByxxjrY1tVz1VAwnb42W1LKMxNa1_tuLsSbhKXVQOXfkPhu2ReXoBjy7WiVlMXA78MNAAu6pnC7YioVmIW2dKEb25JMJn0JqOwskSTKnVPJJiuIw2615x0XeW8ZAOXFG3Ot-KUa0eqaTRgP2jLOKIT3Q6PdCoVnLaIZu2D9H7-Ct68aVmUkB904J7V-L7w" style="">
+</div>
+<div class="p-8 flex flex-col flex-grow">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded-full text-[10px] font-label uppercase tracking-widest" style="">IoT Hardware</span>
+</div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-3 tracking-tight" style="">Dual-Axis Solar Tracking</h3>
+<p class="text-on-surface-variant text-body-md leading-relaxed mb-8" style="">
+                        Automated solar panel positioning system that tracks the sun's trajectory on two axes, increasing energy collection efficiency by 35%.
+                    </p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">Arduino</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">C++</span>
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant rounded-full text-xs" style="">MQTT</span>
+</div>
+<div class="mt-auto flex gap-4">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all" href="#" style="">
+                            View Docs <span class="material-symbols-outlined text-sm" style="">description</span>
+</a>
+<a class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-bold text-sm transition-all" href="#" style="">
+                            Circuit Design <span class="material-symbols-outlined text-sm" style="">settings_input_component</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full py-12 px-8 bg-[#131313] bg-[#0e0e0e]">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 w-full max-w-7xl mx-auto">
+<p class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#c2c6d6]" style="">
+                © 2024 The Digital Architect. Engineered with precision.
+            </p>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#c2c6d6] hover:text-[#adc6ff] transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#" style="">GitHub</a>
+<a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#c2c6d6] hover:text-[#adc6ff] transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#" style="">LinkedIn</a>
+<a class="font-['Inter'] text-xs uppercase tracking-[0.05em] text-[#c2c6d6] hover:text-[#adc6ff] transition-colors opacity-80 hover:opacity-100 transition-opacity" href="#" style="">Email</a>
+</div>
+</div>
+</footer>
+</body></html>
