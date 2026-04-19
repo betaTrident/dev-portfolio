@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive 3D Tech Globe — Scratchpad</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0a0f;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #e2e8f0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    h1 {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ff4500;
+      z-index: 10;
+      font-family: 'Courier New', monospace;
+    }
+    #globe-container {
+      position: relative;
+      width: 560px;
+      height: 560px;
+    }
+    #globe-canvas {
+      position: absolute;
+      inset: 0;
+      cursor: grab;
+    }
+    #globe-canvas:active { cursor: grabbing; }
+    #icon-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .tech-node {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      pointer-events: auto;
+      cursor: pointer;
+      will-change: transform, opacity;
+      transition: none;
+    }
+    .tech-node .icon-wrap {
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tech-node img {
+      width: 28px; height: 28px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.15));
+      transition: filter 0.2s ease, transform 0.2s ease;
+      display: block;
+    }
+    .tech-node span {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(226,232,240,0.6);
+      white-space: nowrap;
+      transition: color 0.2s ease;
+      line-height: 1;
+    }
+    .tech-node:hover img {
+      filter: drop-shadow(0 0 12px rgba(255,80,0,0.95)) brightness(1.15);
+      transform: scale(1.4);
+    }
+    .tech-node:hover span { color: #ff6030; }
+    #hint {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: rgba(226,232,240,0.35);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #debug {
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      font-size: 10px;
+      color: #ff4500;
+      font-family: monospace;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<h1># Skills.json</h1>
+<div id="debug">Loading Three.js...</div>
+
+<div id="globe-container">
+  <canvas id="globe-canvas"></canvas>
+  <div id="icon-layer"></div>
+</div>
+
+<div id="hint">
+  <span>⟳</span> Drag to explore skills universe
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.162.0/build/three.module.js"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+
+const dbg = document.getElementById('debug');
+dbg.textContent = 'Three.js loaded ✓ — Building globe...';
+
+// ============================================================
+// DATA
+// ============================================================
+const TECHS = [
+  { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "Next.js",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Node.js",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Python",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { name: "Docker",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "PostgreSQL",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "Tailwind",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Git",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "GraphQL",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
+  { name: "Figma",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "AWS",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+  { name: "Kubernetes",icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { name: "MongoDB",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Redis",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
+  { name: "Linux",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+];
+
+// ============================================================
+// FIBONACCI SPHERE DISTRIBUTION
+// ============================================================
+function fibonacciSphere(n) {
+  const pts = [];
+  const phi = Math.PI * (3 - Math.sqrt(5));
+  for (let i = 0; i < n; i++) {
+    const y = 1 - (i / (n - 1)) * 2;
+    const r = Math.sqrt(1 - y * y);
+    const theta = phi * i;
+    pts.push({ x: Math.cos(theta) * r, y, z: Math.sin(theta) * r });
+  }
+  return pts;
+}
+
+const unitPositions = fibonacciSphere(TECHS.length);
+
+// ============================================================
+// THREE.JS RENDERER + SCENE
+// ============================================================
+const container = document.getElementById('globe-container');
+const canvas = document.getElementById('globe-canvas');
+const W = container.clientWidth;
+const H = container.clientHeight;
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setSize(W, H);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor(0x000000, 0);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.1, 100);
+camera.position.z = 4.2;
+
+const RADIUS = 1.55;
+const globeGroup = new THREE.Group();
+scene.add(globeGroup);
+
+// — Inner dark sphere (occludes objects behind globe)
+const innerGeo = new THREE.SphereGeometry(RADIUS * 0.985, 48, 48);
+const innerMat = new THREE.MeshBasicMaterial({ color: 0x0c0c14, transparent: true, opacity: 0.92 });
+globeGroup.add(new THREE.Mesh(innerGeo, innerMat));
+
+// — Wireframe icosahedron (geodesic lines)
+const wireGeo = new THREE.IcosahedronGeometry(RADIUS, 4);
+const wireMat = new THREE.MeshBasicMaterial({
+  color: 0xcc3300, wireframe: true, transparent: true, opacity: 0.22
+});
+globeGroup.add(new THREE.Mesh(wireGeo, wireMat));
+
+// — Equatorial ring glow
+const ringGeo = new THREE.TorusGeometry(RADIUS, 0.006, 8, 120);
+const ringMat = new THREE.MeshBasicMaterial({ color: 0xff4500, transparent: true, opacity: 0.4 });
+globeGroup.add(new THREE.Mesh(ringGeo, ringMat));
+
+// — Small dot at each tech position
+const dotGeo = new THREE.SphereGeometry(0.028, 8, 8);
+const localPositions = unitPositions.map(p => ({
+  x: p.x * RADIUS, y: p.y * RADIUS, z: p.z * RADIUS
+}));
+
+localPositions.forEach(pos => {
+  const dot = new THREE.Mesh(
+    dotGeo,
+    new THREE.MeshBasicMaterial({ color: 0xff6030, transparent: true, opacity: 0.9 })
+  );
+  dot.position.set(pos.x, pos.y, pos.z);
+  globeGroup.add(dot);
+});
+
+// Ambient glow via a large transparent sphere
+const glowGeo = new THREE.SphereGeometry(RADIUS * 1.22, 32, 32);
+const glowMat = new THREE.MeshBasicMaterial({
+  color: 0xff3000, transparent: true, opacity: 0.04, side: THREE.BackSide
+});
+scene.add(new THREE.Mesh(glowGeo, glowMat));
+
+dbg.textContent = 'Globe built ✓ — Rendering...';
+
+// ============================================================
+// HTML ICON OVERLAY
+// ============================================================
+const iconLayer = document.getElementById('icon-layer');
+const nodeEls = TECHS.map((tech, i) => {
+  const el = document.createElement('div');
+  el.className = 'tech-node';
+  el.id = `tn-${i}`;
+  el.innerHTML = `
+    <div class="icon-wrap">
+      <img src="${tech.icon}" alt="${tech.name}" loading="lazy" />
+    </div>
+    <span>${tech.name}</span>
+  `;
+  iconLayer.appendChild(el);
+  return el;
+});
+
+// Reusable Vector3 for projection
+const _v = new THREE.Vector3();
+
+function updateIconPositions() {
+  localPositions.forEach((lp, i) => {
+    // Apply globe group rotation to get world position
+    _v.set(lp.x, lp.y, lp.z).applyEuler(globeGroup.rotation);
+
+    // Project to 2D
+    const projected = _v.clone().project(camera);
+    const px = (projected.x * 0.5 + 0.5) * W;
+    const py = (-projected.y * 0.5 + 0.5) * H;
+
+    // Depth: worldZ from -RADIUS (back) to +RADIUS (front)
+    const wz = _v.z;
+    const depth = (wz + RADIUS) / (2 * RADIUS); // 0 = back, 1 = front
+    const isBehind = wz < -RADIUS * 0.08;
+
+    const scale = 0.6 + depth * 0.6;
+    const opacity = isBehind ? Math.max(0.05, depth * 0.35) : 0.45 + depth * 0.55;
+
+    const el = nodeEls[i];
+    el.style.transform = `translate(${px - 17}px, ${py - 20}px) scale(${scale})`;
+    el.style.opacity = opacity;
+    el.style.zIndex = Math.round(depth * 100);
+    el.style.pointerEvents = isBehind ? 'none' : 'auto';
+  });
+}
+
+// ============================================================
+// DRAG INTERACTION
+// ============================================================
+let isDragging = false;
+let prevX = 0, prevY = 0;
+let velX = 0, velY = 0;
+let autoSpin = true;
+let spinTimer;
+
+function startDrag(x, y) {
+  isDragging = true;
+  prevX = x; prevY = y;
+  velX = 0; velY = 0;
+  autoSpin = false;
+  clearTimeout(spinTimer);
+}
+
+function moveDrag(x, y) {
+  if (!isDragging) return;
+  const dx = x - prevX;
+  const dy = y - prevY;
+  velY = dx * 0.004;
+  velX = dy * 0.004;
+  globeGroup.rotation.y += velY;
+  globeGroup.rotation.x += velX;
+  prevX = x; prevY = y;
+}
+
+function endDrag() {
+  isDragging = false;
+  spinTimer = setTimeout(() => { autoSpin = true; }, 2200);
+}
+
+canvas.addEventListener('mousedown', e => startDrag(e.clientX, e.clientY));
+window.addEventListener('mousemove', e => moveDrag(e.clientX, e.clientY));
+window.addEventListener('mouseup', endDrag);
+canvas.addEventListener('touchstart', e => { startDrag(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+canvas.addEventListener('touchmove', e => { e.preventDefault(); moveDrag(e.touches[0].clientX, e.touches[0].clientY); }, { passive: false });
+canvas.addEventListener('touchend', endDrag);
+
+// ============================================================
+// RENDER LOOP
+// ============================================================
+const INERTIA = 0.91;
+const AUTO_SPEED = 0.003;
+
+let glowPulse = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (!isDragging) {
+    velX *= INERTIA;
+    velY *= INERTIA;
+    globeGroup.rotation.x += velX;
+    globeGroup.rotation.y += velY;
+    if (autoSpin) {
+      globeGroup.rotation.y += AUTO_SPEED;
+    }
+  }
+
+  // Clamp vertical rotation
+  globeGroup.rotation.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, globeGroup.rotation.x));
+
+  // Subtle pulse on wireframe
+  glowPulse += 0.015;
+  wireMat.opacity = 0.18 + Math.sin(glowPulse) * 0.05;
+
+  updateIconPositions();
+  renderer.render(scene, camera);
+}
+
+animate();
+setTimeout(() => { dbg.style.display = 'none'; }, 2000);
+
+// Resize
+window.addEventListener('resize', () => {
+  const W2 = container.clientWidth, H2 = container.clientHeight;
+  camera.aspect = W2 / H2;
+  camera.updateProjectionMatrix();
+  renderer.setSize(W2, H2);
+});
+</script>
+</body>
+</html>

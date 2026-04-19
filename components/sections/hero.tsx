@@ -55,8 +55,8 @@ export function HeroSection() {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleScrollToContact = () => {
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  const handleScrollToAbout = () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -140,7 +140,7 @@ export function HeroSection() {
             </div>
 
             <div className="p-6 bg-[radial-gradient(circle_at_15%_0%,rgba(255,128,0,0.08),transparent_35%),radial-gradient(circle_at_100%_100%,rgba(0,170,255,0.1),transparent_35%)]">
-              <div className="grid grid-cols-[34px_1fr] gap-x-4 font-mono text-[14px] leading-8">
+              <div className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-4 font-mono text-[14px] leading-8 pr-2">
                 <div className="text-on-surface-variant/35 text-right select-none">1</div>
                 <div className="text-on-surface-variant/65">// Welcome to my workspace</div>
 
@@ -176,18 +176,18 @@ export function HeroSection() {
                 <div className="text-[#f0f4f8]">{"<Developer"}</div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">7</div>
-                <div className="whitespace-nowrap">
-                  <span className="text-[#ff8f5a]">name</span>=<span className="text-[#22d3a6]">&quot;Kent Bryan A. Colina&quot;</span>
+                <div className="whitespace-nowrap pl-4">
+                  <span className="text-[#ff8f5a]">name</span> = <span className="text-[#22d3a6]">&quot;Kent Bryan A. Colina&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">8</div>
-                <div className="whitespace-nowrap">
-                  <span className="text-[#ff8f5a]">role</span>=<span className="text-[#22d3a6]">&quot;Full Stack Engineer&quot;</span>
+                <div className="whitespace-nowrap pl-4">
+                  <span className="text-[#ff8f5a]">role</span> = <span className="text-[#22d3a6]">&quot;Full Stack Engineer&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">9</div>
-                <div className="whitespace-nowrap">
-                  <span className="text-[#ff8f5a]">passion</span>=<span className="text-[#22d3a6]">&quot;Engineering Beyond Boundaries&quot;</span>
+                <div className="whitespace-nowrap pl-4">
+                  <span className="text-[#ff8f5a]">passion</span> = <span className="text-[#22d3a6]">&quot;Engineering Beyond Boundaries&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">10</div>
@@ -202,7 +202,7 @@ export function HeroSection() {
 
               <div className="mt-6 flex flex-wrap gap-3">
                 <button
-                  onClick={handleScrollToContact}
+                  onClick={handleScrollToAbout}
                   className="px-4 py-2.5 rounded-lg border border-orange-400/40 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 transition-colors text-sm font-medium flex items-center gap-2"
                 >
                   <span className="material-symbols-outlined text-base">play_arrow</span>

@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
@@ -12,17 +11,17 @@ const navLinks = [
 ];
 
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState("Home");
+  const [activeSection, setActiveSection] = useState("About");
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Highlight active nav link based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map((l) => l.href.replace("#", ""));
+        const sections = navLinks.map((l) => l.href.replace("#", ""));
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(navLinks.find((l) => l.href === `#${id}`)?.label ?? "Home");
+            setActiveSection(navLinks.find((l) => l.href === `#${id}`)?.label ?? "About");
           break;
         }
       }
@@ -39,7 +38,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-gradient-to-b from-[#131313] to-transparent">
+    <nav className="fixed top-0 w-full z-50 bg-linear-to-b from-[#131313] to-transparent">
       <div className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
         {/* Wordmark */}
         <div className="text-xl font-black tracking-tighter text-[#e5e2e1]">
@@ -53,10 +52,10 @@ export function Navbar() {
               key={link.label}
               onClick={() => handleNavClick(link.href, link.label)}
               className={cn(
-                "transition-all duration-300 bg-transparent border-none outline-none cursor-pointer",
+                "relative transition-all duration-300 bg-transparent border-none outline-none cursor-pointer pb-1 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:transition-all after:duration-300",
                 activeSection === link.label
-                  ? "text-[#adc6ff] font-bold border-b-2 border-[#adc6ff] pb-1"
-                  : "text-[#c2c6d6] hover:text-[#e5e2e1]"
+                  ? "text-primary font-bold after:w-full after:bg-primary"
+                  : "text-on-surface-variant hover:text-on-surface after:w-0 after:bg-primary/70"
               )}
             >
               {link.label}
@@ -69,7 +68,7 @@ export function Navbar() {
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-block bg-gradient-to-br from-[#adc6ff] to-[#4d8eff] text-[#002e6a] px-6 py-2.5 rounded-lg font-bold text-sm scale-95 hover:scale-100 active:scale-90 transition-transform"
+          className="hidden md:inline-block bg-linear-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm scale-95 hover:scale-100 active:scale-90 transition-transform"
         >
           Resume
         </a>
@@ -99,10 +98,10 @@ export function Navbar() {
               key={link.label}
               onClick={() => handleNavClick(link.href, link.label)}
               className={cn(
-                "text-left py-2 text-sm font-medium transition-colors duration-200 bg-transparent border-none outline-none cursor-pointer w-full",
+                "text-left py-2 text-sm font-medium transition-colors duration-200 bg-transparent border-none outline-none cursor-pointer w-full border-l-2 pl-3",
                 activeSection === link.label
-                  ? "text-[#adc6ff] font-bold"
-                  : "text-[#c2c6d6] hover:text-[#e5e2e1]"
+                  ? "text-primary border-primary font-bold"
+                  : "text-on-surface-variant border-transparent hover:text-on-surface"
               )}
             >
               {link.label}
@@ -112,7 +111,7 @@ export function Navbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 bg-gradient-to-br from-[#adc6ff] to-[#4d8eff] text-[#002e6a] px-6 py-2.5 rounded-lg font-bold text-sm text-center"
+            className="mt-2 bg-linear-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm text-center"
           >
             Resume
           </a>
