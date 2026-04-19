@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
-import Image from "next/image";
 
 // Load Three.js canvas only on client to avoid SSR errors
 const CanvasScene = dynamic(
@@ -56,6 +55,10 @@ export function HeroSection() {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleScrollToContact = () => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       id="hero"
@@ -70,7 +73,7 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left — Text Content */}
-        <div className="lg:col-span-8">
+        <div className="lg:col-span-7">
           {/* Label */}
           <div className="mb-6">
             <span
@@ -84,10 +87,11 @@ export function HeroSection() {
           {/* Headline */}
           <h1
             ref={headingRef}
-            className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] text-on-surface mb-8"
+            className="text-5xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-on-surface mb-8"
           >
-            Building Scalable <br />
-            <span className="text-gradient">Web Applications</span>
+            I build <span className="text-primary">scalable</span> <br />
+            <span className="text-primary">solutions</span> that drive <br />
+            real <span className="text-primary italic">business impact.</span>
           </h1>
 
           {/* Subtitle */}
@@ -95,16 +99,15 @@ export function HeroSection() {
             ref={subtitleRef}
             className="text-xl md:text-2xl text-on-surface-variant max-w-2xl font-light leading-relaxed mb-12"
           >
-            I&apos;m a Full-Stack Developer specialized in architecting
-            high-performance digital ecosystems with modern frameworks and
-            cloud-native patterns.
+            Transforming ideas into production-ready applications with modern
+            technologies and best practices.
           </p>
 
           {/* CTAs */}
           <div ref={ctaRef} className="flex flex-wrap gap-4">
             <button
               onClick={handleScrollToProjects}
-              className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-lg font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(173,198,255,0.4)] hover:scale-[1.02] active:scale-95 transition-all duration-300"
+              className="bg-linear-to-br from-primary to-primary-container text-on-primary px-10 py-4 rounded-lg font-bold text-lg hover:shadow-[0_0_40px_-10px_rgba(255,122,64,0.45)] hover:scale-[1.02] active:scale-95 transition-all duration-300"
             >
               View Projects
             </button>
@@ -123,18 +126,97 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Right — Profile Image */}
-        <div ref={imageRef} className="lg:col-span-4 relative hidden lg:block">
-          <div className="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low relative group">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzSs84iAeUbjAOhZdWwoDcTt6ZYvmd-cwnBmucvIC1A8HpWt5QhJ2tq49n6AMT9Fp2nP10w5ROnwV1NZx4y2HuiMhs268A6Lusw6AtP5S0rZguz94ciTVSO7a_AxEyzR5NggG0DcrCUKo06RIBTfjS5jESsklXwcwQ-aEGymCe_lsclGiVh51Igoebx47tK0sYIM36KR5dd2HO1BSj4yV-F5VvbSrIiOcnmzOpPN3talaUUjRKPFG6ppz1pxdKuwDFRfCt4VXVAis"
-              alt="Modern dark workspace with code on monitor and subtle blue ambient lighting"
-              fill
-              className="object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-              unoptimized
-            />
-            {/* Bottom fade overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-10" />
+        {/* Right — Code Profile Card */}
+        <div ref={imageRef} className="lg:col-span-5 relative hidden lg:block">
+          <div className="rounded-2xl overflow-hidden border border-primary/20 bg-[#0b0f14] shadow-[0_28px_80px_-40px_rgba(0,0,0,0.9)] max-w-130 ml-auto">
+            <div className="h-11 px-5 border-b border-white/10 bg-[#121922] flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+              </div>
+              <span className="text-xs tracking-wide text-on-surface-variant/80 font-mono">portfolio.tsx</span>
+              <span className="w-14" />
+            </div>
+
+            <div className="p-6 bg-[radial-gradient(circle_at_15%_0%,rgba(255,128,0,0.08),transparent_35%),radial-gradient(circle_at_100%_100%,rgba(0,170,255,0.1),transparent_35%)]">
+              <div className="grid grid-cols-[34px_1fr] gap-x-4 font-mono text-[14px] leading-8">
+                <div className="text-on-surface-variant/35 text-right select-none">1</div>
+                <div className="text-on-surface-variant/65">// Welcome to my workspace</div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">2</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#c586ff]">import</span>{" "}
+                  <span className="text-[#f0f4f8]">{"{"}</span>{" "}
+                  <span className="text-[#ff8f5a]">Developer</span>{" "}
+                  <span className="text-[#f0f4f8]">{"}"}</span>{" "}
+                  <span className="text-[#c586ff]">from</span>{" "}
+                  <span className="text-[#22d3a6]">&apos;./universe&apos;</span>;
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">3</div>
+                <div />
+
+                <div className="text-on-surface-variant/35 text-right select-none">4</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#c586ff]">const</span>{" "}
+                  <span className="text-[#f8cc4f]">Portfolio</span>{" "}
+                  <span className="text-[#79b8ff]">=</span>{" "}
+                  <span className="text-[#f0f4f8]">()</span>{" "}
+                  <span className="text-[#79b8ff]">=&gt;</span>{" "}
+                  <span className="text-[#f0f4f8]">{"{"}</span>
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">5</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#c586ff]">return</span> <span className="text-[#f0f4f8]">(</span>
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">6</div>
+                <div className="text-[#f0f4f8]">{"<Developer"}</div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">7</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#ff8f5a]">name</span>=<span className="text-[#22d3a6]">&quot;Kent Bryan A. Colina&quot;</span>
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">8</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#ff8f5a]">role</span>=<span className="text-[#22d3a6]">&quot;Full Stack Engineer&quot;</span>
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">9</div>
+                <div className="whitespace-nowrap">
+                  <span className="text-[#ff8f5a]">passion</span>=<span className="text-[#22d3a6]">&quot;Engineering Beyond Boundaries&quot;</span>
+                </div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">10</div>
+                <div className="text-[#f0f4f8]">{"/>"}</div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">11</div>
+                <div className="text-[#f0f4f8]">);</div>
+
+                <div className="text-on-surface-variant/35 text-right select-none">12</div>
+                <div className="text-[#f0f4f8]">{"};"}</div>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button
+                  onClick={handleScrollToContact}
+                  className="px-4 py-2.5 rounded-lg border border-orange-400/40 bg-orange-500/10 text-orange-300 hover:bg-orange-500/20 transition-colors text-sm font-medium flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-base">play_arrow</span>
+                  Run Profile
+                </button>
+                <button
+                  onClick={handleScrollToProjects}
+                  className="px-4 py-2.5 rounded-lg border border-white/15 bg-transparent text-on-surface hover:bg-white/5 transition-colors text-sm font-medium flex items-center gap-2"
+                >
+                  <span className="material-symbols-outlined text-base">folder_open</span>
+                  View Projects
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

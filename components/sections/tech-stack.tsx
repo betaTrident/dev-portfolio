@@ -8,19 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const tickerItems = [
-  { icon: "terminal", label: "TypeScript" },
-  { icon: "javascript", label: "JavaScript (React, Node.js)" },
-  { icon: "data_object", label: "Python (Django, Flask)" },
-  { icon: "database", label: "SQL (PostgreSQL, MySQL)" },
-  { icon: "storage", label: "NoSQL (MongoDB, Firebase)" },
-  { icon: "cloud", label: "AWS / Cloud Native" },
-  { icon: "hub", label: "Node.js" },
-  { icon: "api", label: "REST & GraphQL" },
-  { icon: "smart_toy", label: "Gemini AI / LLMs" },
-  { icon: "memory", label: "IoT Systems" },
-];
-
 const bentoCards = [
   {
     span: "md:col-span-8",
@@ -108,50 +95,6 @@ const competencies = [
   },
 ];
 
-// ─── Components ──────────────────────────────────────────────────────────────
-
-function TickerTrack() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    // Clone items for seamless loop
-    const clone = el.cloneNode(true) as HTMLDivElement;
-    el.parentElement?.appendChild(clone);
-
-    const totalWidth = el.scrollWidth;
-    const anim = gsap.to([el, clone], {
-      x: `-=${totalWidth}`,
-      ease: "none",
-      duration: 28,
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-      },
-    });
-
-    return () => { anim.kill(); };
-  }, []);
-
-  return (
-    <div className="relative overflow-hidden">
-      <div className="flex gap-6" ref={trackRef}>
-        {tickerItems.map((item, i) => (
-          <div
-            key={i}
-            className="flex-none bg-surface-container-highest px-8 py-4 rounded-full flex items-center gap-4 hover:border-primary/40 border border-outline-variant/10 transition-colors cursor-default"
-          >
-            <span className="material-symbols-outlined text-primary">{item.icon}</span>
-            <span className="font-bold text-lg tracking-tight whitespace-nowrap">{item.label}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ─── Main Section ─────────────────────────────────────────────────────────────
 
 export function TechStackSection() {
@@ -209,10 +152,6 @@ export function TechStackSection() {
           Engineered with Precision
         </h2>
         <div className="h-[1px] flex-grow bg-outline-variant/20 hidden md:block" />
-      </div>
-
-      <div className="py-4 mb-20">
-        <TickerTrack />
       </div>
 
       {/* ── Bento Grid ─────────── */}

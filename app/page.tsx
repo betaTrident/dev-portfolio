@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { HeroSection } from "@/components/sections/hero";
-import { AboutSection } from "@/components/sections/about";
-import { TechStackSection } from "@/components/sections/tech-stack";
-import { ProjectsSection } from "@/components/sections/projects";
-import { TestimonialsSection } from "@/components/sections/testimonials";
-import { CertificatesSection } from "@/components/sections/certificates";
-import { ContactSection } from "@/components/sections/contact";
+import HeroPage from "@/pages/Hero/page";
+import AboutPage from "@/pages/About/page";
+import TechStackPage from "@/pages/TechStack/page";
+import ProjectsPage from "@/pages/Projects/page";
+import TestimonialsPage from "@/pages/Testimonials/page";
+import CertificatesPage from "@/pages/Certificates/page";
+import ContactPage from "@/pages/Contact/page";
 
 export default function Page() {
   return (
@@ -15,25 +15,25 @@ export default function Page() {
 
       <main>
         {/* Phase 3: Hero ✅ */}
-        <HeroSection />
+        <HeroPage />
 
         {/* Phase 6: About ✅ — moved directly after Hero per user request */}
-        <AboutSection />
+        <AboutPage />
 
         {/* Phase 4: Tech Stack ✅ */}
-        <TechStackSection />
+        <TechStackPage />
 
         {/* Phase 5: Projects ✅ */}
-        <ProjectsSection />
+        <ProjectsPage />
 
         {/* Phase 5: Testimonials ✅ */}
-        <TestimonialsSection />
+        <TestimonialsPage />
 
         {/* Phase 6: Certificates ✅ */}
-        <CertificatesSection />
+        <CertificatesPage />
 
         {/* Phase 6: Contact ✅ */}
-        <ContactSection />
+        <ContactPage />
       </main>
 
       <Footer />

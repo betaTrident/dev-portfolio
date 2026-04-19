@@ -12,13 +12,13 @@
     --color-on-error-container: #ffdad6;
     --color-on-tertiary-container: #461f00;
     --color-tertiary-container: #df7412;
-    --color-surface-tint: #adc6ff;
+    --color-surface-tint: #ff8a47;
     --color-surface-variant: #353534;
     --color-error: #ffb4ab;
     --color-on-tertiary-fixed-variant: #723600;
-    --color-primary-container: #4d8eff;
+    --color-primary-container: #ff4d2d;
     --color-tertiary-fixed: #ffdcc6;
-    --color-on-primary: #002e6a;
+    --color-on-primary: #2d0f00;
     --color-surface-container: #201f1f;
     --color-on-secondary-container: #a7b6cc;
     --color-surface-container-lowest: #0e0e0e;
@@ -26,30 +26,30 @@
     --color-on-secondary: #233143;
     --color-background: #131313;
     --color-on-background: #e5e2e1;
-    --color-primary-fixed: #d8e2ff;
+    --color-primary-fixed: #ffd8c9;
     --color-on-surface: #e5e2e1;
     --color-inverse-surface: #e5e2e1;
     --color-surface-container-low: #1c1b1b;
     --color-on-tertiary: #502400;
     --color-surface-dim: #131313;
     --color-on-secondary-fixed: #0d1c2d;
-    --color-inverse-primary: #005ac2;
+    --color-inverse-primary: #c8451e;
     --color-inverse-on-surface: #313030;
     --color-error-container: #93000a;
     --color-on-tertiary-fixed: #311400;
-    --color-on-primary-fixed: #001a42;
+    --color-on-primary-fixed: #3a1200;
     --color-on-surface-variant: #c2c6d6;
     --color-outline-variant: #424754;
-    --color-primary-fixed-dim: #adc6ff;
-    --color-primary: #adc6ff;
+    --color-primary-fixed-dim: #ff8a47;
+    --color-primary: #ff8a47;
     --color-on-secondary-fixed-variant: #39485a;
     --color-on-error: #690005;
     --color-surface-container-highest: #353534;
     --color-tertiary-fixed-dim: #ffb786;
     --color-outline: #8c909f;
-    --color-on-primary-container: #00285d;
+    --color-on-primary-container: #351300;
     --color-surface-bright: #393939;
-    --color-on-primary-fixed-variant: #004395;
+    --color-on-primary-fixed-variant: #8a2e11;
     --color-secondary: #b9c8de;
     --color-tertiary: #ffb786;
     --color-secondary-fixed-dim: #b9c8de;
@@ -166,7 +166,7 @@
 
 /* Signature gradient text — matches Google Stitch .text-gradient */
 .text-gradient {
-  background: linear-gradient(135deg, #adc6ff 0%, #4d8eff 100%);
+  background: linear-gradient(135deg, #ff8a47 0%, #ff4d2d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -181,12 +181,12 @@
 
 /* Primary gradient button background */
 .gradient-primary {
-  background: linear-gradient(135deg, #adc6ff 0%, #4d8eff 100%);
+  background: linear-gradient(135deg, #ff8a47 0%, #ff4d2d 100%);
 }
 
 /* Atmospheric glow — 32px–64px blur, 4–8% opacity per DESIGN.md */
 .atmospheric-glow {
-  box-shadow: 0 0 64px 8px rgba(173, 198, 255, 0.06);
+  box-shadow: 0 0 64px 8px rgba(255, 122, 64, 0.1);
 }
 
 /* Hide scrollbar utility */
