@@ -37,7 +37,7 @@ export function CertificatesSection() {
   }, []);
 
   return (
-    <section id="experience" className="py-32 bg-surface-container-lowest">
+    <section id="certificates" className="py-32 bg-surface-container-lowest">
 
       {/* ── Header ─────────────────── */}
       <div className="max-w-7xl mx-auto px-8 mb-24">

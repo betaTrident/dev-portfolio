@@ -34,7 +34,11 @@ export function Navbar() {
     setActiveSection(label);
     setMenuOpen(false);
     const target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: "smooth" });
+    if (target) {
+      const navOffset = 108;
+      const top = (target as HTMLElement).getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   };
 
   return (
