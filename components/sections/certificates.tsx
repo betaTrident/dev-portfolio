@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,11 +15,8 @@ const certs = [
   { icon: "verified_user", title: "CompTIA Security+ Certification", issuer: "CompTIA", date: "May 2023" },
 ];
 
-const philosophyTags = ["Scalability", "Security-First", "High Availability", "Cloud Native"];
-
 export function CertificatesSection() {
   const gridRef = useRef<HTMLDivElement>(null);
-  const breakRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const cards = gridRef.current?.querySelectorAll(".cert-card");
@@ -35,17 +31,6 @@ export function CertificatesSection() {
           stagger: 0.08,
           ease: "power3.out",
           scrollTrigger: { trigger: gridRef.current, start: "top 85%" },
-        }
-      );
-    }
-    if (breakRef.current) {
-      gsap.fromTo(
-        breakRef.current,
-        { opacity: 0 },
-        {
-          opacity: 1,
-          duration: 0.9,
-          scrollTrigger: { trigger: breakRef.current, start: "top 85%" },
         }
       );
     }
@@ -81,7 +66,7 @@ export function CertificatesSection() {
             {certs.map((cert) => (
               <div
                 key={cert.title}
-                className="cert-card group bg-surface-container-highest p-8 rounded-xl transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between min-h-[320px]"
+                className="cert-card group bg-surface-container-highest p-8 rounded-xl transition-all duration-300 hover:scale-[1.02] flex flex-col justify-between min-h-80"
               >
                 <div>
                   <div className="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center mb-8">
@@ -100,32 +85,6 @@ export function CertificatesSection() {
         </div>
       </div>
 
-      {/* ── Continuous Verification Visual Break ─────────────────── */}
-      <section ref={breakRef} className="max-w-7xl mx-auto px-8 py-24 flex flex-col md:flex-row gap-20 items-center">
-        <div className="relative w-full md:w-1/2 aspect-square rounded-2xl overflow-hidden bg-surface-container-high">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvoqLDra3zYYidt625d-S4ZeYjfIRsZKGN2WERZWRYTmwlSVarfk-T-yXj0pjSjVkHjDLBtCJXH2qRl1dYY-yPJ4Suz2LCrinmJ_9MxqfEnRSuRdUWkQxWQikA68-T7Zbo97EnhWWD2FAxMWocFO3RlcfR8KgBlA5mMpkOAvmfRKaDgKV1u_UqI1bNBopOxEEMD963YOa1AawKa_FElBeE5B9kESX5BF6G88sM4h_0LbYVTZVHUy3IZtfALW_DhFoXTw7iWJ81tN0"
-            alt="Technical Workspace"
-            fill
-            className="object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-            unoptimized
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
-        </div>
-        <div className="w-full md:w-1/2">
-          <h3 className="text-4xl font-bold text-on-surface tracking-tight mb-8">Continuous Verification</h3>
-          <p className="text-on-surface-variant mb-12 leading-relaxed">
-            In an industry that evolves daily, staying at the forefront requires disciplined learning. These certifications represent not just milestones, but a commitment to mastering the architectural patterns that power the modern web.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            {philosophyTags.map((tag) => (
-              <span key={tag} className="bg-surface-container-highest px-4 py-2 rounded-full text-sm tracking-wide text-on-surface-variant">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
     </section>
   );
 }
