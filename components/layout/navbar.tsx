@@ -43,14 +43,14 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-linear-to-b from-[#131313] to-transparent">
-      <div className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
+      <div className="relative flex items-center px-8 py-6 max-w-7xl mx-auto">
         {/* Wordmark */}
-        <div className="text-xl font-black tracking-tighter text-[#e5e2e1]">
+        {/* <div className="text-xl font-black tracking-tighter text-[#e5e2e1]">
           THE AR(K)TECH
-        </div>
+        </div> */}
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8 font-medium tracking-tight text-sm">
+        <div className="hidden md:flex items-center gap-8 font-medium tracking-tight text-sm absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <button
               key={link.label}
@@ -68,18 +68,18 @@ export function Navbar() {
         </div>
 
         {/* Resume CTA */}
-        <a
+        {/* <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-block bg-linear-to-br from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm scale-95 hover:scale-100 active:scale-90 transition-transform"
         >
           Resume
-        </a>
+        </a> */}
 
         {/* Mobile Hamburger */}
         <button
-          className="md:hidden text-[#e5e2e1] flex flex-col gap-1.5 p-2"
+          className="md:hidden text-[#e5e2e1] flex flex-col gap-1.5 p-2 ml-auto"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
         >

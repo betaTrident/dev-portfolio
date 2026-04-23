@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { type CSSProperties, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import dynamic from "next/dynamic";
 
@@ -11,6 +11,12 @@ const CanvasScene = dynamic(
 );
 
 export function HeroSection() {
+  const typingStyle = (steps: number, delay: number, duration = 0.9): CSSProperties => ({
+    ["--typing-steps" as string]: String(steps),
+    ["--typing-delay" as string]: `${delay}s`,
+    ["--typing-duration" as string]: `${duration}s`,
+  });
+
   const labelRef = useRef<HTMLSpanElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -128,7 +134,7 @@ export function HeroSection() {
 
         {/* Right — Code Profile Card */}
         <div ref={imageRef} className="lg:col-span-5 relative hidden lg:block">
-          <div className="rounded-2xl overflow-hidden border border-primary/20 bg-[#0b0f14] shadow-[0_28px_80px_-40px_rgba(0,0,0,0.9)] max-w-130 ml-auto">
+          <div className="rounded-2xl overflow-hidden border border-primary/20 bg-[#0b0f14] shadow-[0_28px_80px_-40px_rgba(0,0,0,0.9)] w-full max-w-xl xl:max-w-152 ml-auto">
             <div className="h-11 px-5 border-b border-white/10 bg-[#121922] flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
@@ -142,10 +148,10 @@ export function HeroSection() {
             <div className="p-6 bg-[radial-gradient(circle_at_15%_0%,rgba(255,128,0,0.08),transparent_35%),radial-gradient(circle_at_100%_100%,rgba(0,170,255,0.1),transparent_35%)]">
               <div className="grid grid-cols-[34px_minmax(0,1fr)] gap-x-4 font-mono text-[13px] leading-7.5 pr-2">
                 <div className="text-on-surface-variant/35 text-right select-none">1</div>
-                <div className="text-on-surface-variant/65">// Welcome to my workspace</div>
+                <div className="code-typed-line text-on-surface-variant/65 whitespace-nowrap" style={typingStyle(26, 0.1, 1)}>// Welcome to my workspace</div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">2</div>
-                <div className="whitespace-nowrap">
+                <div className="whitespace-nowrap code-typed-line" style={typingStyle(38, 1.25, 1.2)}>
                   <span className="text-[#c586ff]">import</span>{" "}
                   <span className="text-[#f0f4f8]">{"{"}</span>{" "}
                   <span className="text-[#ff8f5a]">Developer</span>{" "}
@@ -158,7 +164,7 @@ export function HeroSection() {
                 <div />
 
                 <div className="text-on-surface-variant/35 text-right select-none">4</div>
-                <div className="whitespace-nowrap">
+                <div className="whitespace-nowrap code-typed-line" style={typingStyle(26, 2.55, 1)}>
                   <span className="text-[#c586ff]">const</span>{" "}
                   <span className="text-[#f8cc4f]">Portfolio</span>{" "}
                   <span className="text-[#79b8ff]">=</span>{" "}
@@ -168,37 +174,37 @@ export function HeroSection() {
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">5</div>
-                <div className="whitespace-nowrap">
+                <div className="whitespace-nowrap pl-3 code-typed-line" style={typingStyle(8, 3.65, 0.6)}>
                   <span className="text-[#c586ff]">return</span>{" "}
                   <span className="text-[#f0f4f8]">(</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">6</div>
-                <div className="text-[#f0f4f8] pl-6">{"<Developer"}</div>
+                <div className="text-[#f0f4f8] pl-6 code-typed-line" style={typingStyle(10, 4.35, 0.7)}>{"<Developer"}</div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">7</div>
-                <div className="whitespace-nowrap pl-6">
+                <div className="pl-6 code-typed-line-wrap" style={typingStyle(33, 5.15, 0.7)}>
                   <span className="text-[#ff8f5a]">name</span> = <span className="text-[#22d3a6]">&quot;Kent Bryan A. Colina&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">8</div>
-                <div className="whitespace-nowrap pl-6">
+                <div className="pl-6 code-typed-line-wrap" style={typingStyle(29, 6.45, 0.7)}>
                   <span className="text-[#ff8f5a]">role</span> = <span className="text-[#22d3a6]">&quot;Full Stack Engineer&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">9</div>
-                <div className="whitespace-nowrap pl-6">
+                <div className="pl-6 code-typed-line-wrap" style={typingStyle(38, 7.6, 0.7)}>
                   <span className="text-[#ff8f5a]">passion</span> = <span className="text-[#22d3a6]">&quot;Software/AI Engineering&quot;</span>
                 </div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">10</div>
-                <div className="text-[#f0f4f8] pl-6">{"/>"}</div>
+                <div className="text-[#f0f4f8] pl-6 code-typed-line" style={typingStyle(2, 8.95, 0.4)}>{"/>"}</div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">11</div>
-                <div className="text-[#f0f4f8] pl-3">);</div>
+                <div className="text-[#f0f4f8] pl-3 code-typed-line" style={typingStyle(2, 9.45, 0.4)}>);</div>
 
                 <div className="text-on-surface-variant/35 text-right select-none">12</div>
-                <div className="text-[#f0f4f8]">{"};"}</div>
+                <div className="text-[#f0f4f8] code-typed-line" style={typingStyle(2, 9.95, 0.4)}>{"};"}</div>
               </div>
 
               <div className="mt-6 flex flex-wrap gap-3">

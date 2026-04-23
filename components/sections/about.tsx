@@ -46,7 +46,7 @@ export function AboutSection() {
       className="scroll-mt-28 pt-16 pb-20 px-8 max-w-7xl mx-auto"
     >
       {/* ── About Bio ─────────────────── */}
-      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-start pb-24">
         <div ref={headingRef} className="lg:col-span-5">
           <div className="mb-8">
             <div className="relative w-28 h-28 rounded-full overflow-hidden ring-[3px] ring-[#3b82f6] p-1 bg-surface-container-highest">
@@ -64,7 +64,7 @@ export function AboutSection() {
             <span className="text-primary">Systems</span> &amp; Code.
           </h2>
         </div>
-        <div ref={contentRef} className="lg:col-span-7 pt-4">
+        <div ref={contentRef} className="lg:col-span-7 pt-4 pb-10">
           <div className="space-y-6">
             <p className="text-xl text-on-surface-variant leading-relaxed">
               I&apos;m a Full-Stack Software Engineer focused on building production-ready digital products that solve real business problems. I design and develop scalable web applications end-to-end, with strong attention to clean architecture, maintainable code, and user-centered experiences.
@@ -75,7 +75,7 @@ export function AboutSection() {
             <p className="text-xl text-on-surface-variant leading-relaxed">
               I&apos;m also actively diving deeper into AI Engineering, integrating AI capabilities into modern applications and exploring data-driven features that elevate product value. My current focus includes building AI-powered solutions and applying generative AI to improve workflows and accelerate development.
             </p>
-            <div className="flex gap-4 pt-4 flex-wrap">
+            {/* <div className="flex gap-4 pt-4 flex-wrap">
               {["Infrastructure", "Architecture", "Full-Stack"].map((tag) => (
                 <div
                   key={tag}
@@ -86,7 +86,7 @@ export function AboutSection() {
                   </span>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

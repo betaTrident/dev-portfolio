@@ -212,3 +212,62 @@
 section[id] {
   scroll-margin-top: 7rem;
 }
+
+@keyframes code-typing {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes code-caret-blink {
+  0%,
+  49% {
+    border-right-color: rgba(255, 255, 255, 0.85);
+  }
+  50%,
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes code-caret-stop {
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.code-typed-line {
+  display: inline-block;
+  overflow: hidden;
+  width: max-content;
+  max-width: 100%;
+  vertical-align: top;
+  clip-path: inset(0 100% 0 0);
+  border-right: 1px solid transparent;
+  will-change: clip-path;
+  animation:
+    code-typing var(--typing-duration, 1s) steps(var(--typing-steps, 24), end) var(--typing-delay, 0s) forwards,
+    code-caret-blink 0.9s step-end var(--typing-delay, 0s) infinite,
+    code-caret-stop 1ms linear calc(var(--typing-delay, 0s) + var(--typing-duration, 1s)) forwards;
+}
+
+.code-typed-line-wrap {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  vertical-align: top;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  clip-path: inset(0 100% 0 0);
+  border-right: 1px solid transparent;
+  will-change: clip-path;
+  animation:
+    code-typing var(--typing-duration, 1s) steps(var(--typing-steps, 24), end) var(--typing-delay, 0s) forwards,
+    code-caret-blink 0.9s step-end var(--typing-delay, 0s) infinite,
+    code-caret-stop 1ms linear calc(var(--typing-delay, 0s) + var(--typing-duration, 1s)) forwards;
+}
