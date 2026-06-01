@@ -70,8 +70,7 @@ export function HeroSection() {
       id="hero"
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
     >
-      {/* Three.js Particle Canvas — absolute background */}
-      <CanvasScene />
+      {/* Background is now a static, highly premium near-black canvas configured in layout and app container */}
 
       {/* Atmospheric background glows matching Stitch design */}
       <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
