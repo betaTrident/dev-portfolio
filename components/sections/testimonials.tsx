@@ -224,14 +224,7 @@ export function TestimonialsSection() {
           <span className="text-on-surface-variant uppercase tracking-[0.3em] text-xs">
             Partnering with teams at
           </span>
-          <div className="flex flex-wrap justify-center gap-12 text-on-surface-variant">
-            {partnerLogos.map((p) => (
-              <div key={p.name} className="flex items-center gap-2">
-                <span className="material-symbols-outlined">{p.icon}</span>
-                <span className="font-bold tracking-tighter">{p.name}</span>
-              </div>
-            ))}
-          </div>
+         
         </div>
       </div>
     </section>
