@@ -8,30 +8,30 @@
     /* Digital Architect Base Variables */
     /* Digital Architect & Google Stitch Exact Color Mapping */
     --color-secondary-container: #39485a;
-    --color-surface: #131313;
+    --color-surface: #0b0c0e;
     --color-on-error-container: #ffdad6;
     --color-on-tertiary-container: #461f00;
     --color-tertiary-container: #df7412;
     --color-surface-tint: #ff8a47;
-    --color-surface-variant: #353534;
+    --color-surface-variant: #22252a;
     --color-error: #ffb4ab;
     --color-on-tertiary-fixed-variant: #723600;
     --color-primary-container: #ff4d2d;
     --color-tertiary-fixed: #ffdcc6;
     --color-on-primary: #2d0f00;
-    --color-surface-container: #201f1f;
+    --color-surface-container: #121316;
     --color-on-secondary-container: #a7b6cc;
-    --color-surface-container-lowest: #0e0e0e;
+    --color-surface-container-lowest: #050506;
     --color-secondary-fixed: #d4e4fa;
     --color-on-secondary: #233143;
-    --color-background: #131313;
+    --color-background: #0b0c0e;
     --color-on-background: #e5e2e1;
     --color-primary-fixed: #ffd8c9;
     --color-on-surface: #e5e2e1;
     --color-inverse-surface: #e5e2e1;
-    --color-surface-container-low: #1c1b1b;
+    --color-surface-container-low: #0f1012;
     --color-on-tertiary: #502400;
-    --color-surface-dim: #131313;
+    --color-surface-dim: #0b0c0e;
     --color-on-secondary-fixed: #0d1c2d;
     --color-inverse-primary: #c8451e;
     --color-inverse-on-surface: #313030;
@@ -44,7 +44,7 @@
     --color-primary: #ff8a47;
     --color-on-secondary-fixed-variant: #39485a;
     --color-on-error: #690005;
-    --color-surface-container-highest: #353534;
+    --color-surface-container-highest: #22252a;
     --color-tertiary-fixed-dim: #ffb786;
     --color-outline: #8c909f;
     --color-on-primary-container: #351300;
@@ -53,7 +53,7 @@
     --color-secondary: #b9c8de;
     --color-tertiary: #ffb786;
     --color-secondary-fixed-dim: #b9c8de;
-    --color-surface-container-high: #2a2a2a;
+    --color-surface-container-high: #191b1f;
 
     --color-ring: var(--ring);
     --color-input: var(--input);

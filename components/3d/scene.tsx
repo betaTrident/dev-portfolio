@@ -45,11 +45,5 @@ export function ParticleWave() {
 }
 
 export function CanvasScene() {
-  return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-      <Canvas camera={{ position: [0, 0, 15] }}>
-        <ParticleWave />
-      </Canvas>
-    </div>
-  );
+  return null;
 }
