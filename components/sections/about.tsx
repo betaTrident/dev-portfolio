@@ -85,7 +85,7 @@ export function AboutSection() {
 
           {/* High-impact value subtitle */}
           <p className="text-lg text-on-surface-variant font-light leading-relaxed mb-8 max-w-sm">
-            Full-Stack Software Engineer building scalable, reliable, and user-centered digital solutions.
+            Full-Stack Software Engineer | AI Engineer
           </p>
 
           {/* Minimal dividing line */}
@@ -129,10 +129,10 @@ export function AboutSection() {
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface">WHO I AM</h3>
             </div>
             <p className="text-[15px] md:text-base text-on-surface-variant leading-relaxed font-light mb-4">
-              I&apos;m a Full-Stack Software Engineer focused on building production-ready digital products that solve real business problems. I design and develop scalable web applications end-to-end, with strong attention to clean architecture, maintainable code, and user-centered experiences.
+              I&rsquo;m a full-stack developer with a growing focus on backend AI engineering. I build web applications, APIs, and database-driven systems, while exploring how AI, LLMs, and agentic workflows can improve real software experiences.
             </p>
             <p className="text-[15px] md:text-base text-on-surface-variant leading-relaxed font-light">
-              My work covers modern application development and system optimization, helping teams ship faster and operate more efficiently. I enjoy turning complex ideas into practical software that delivers measurable impact.
+              My work focuses on turning complex ideas into practical systems, from planning and architecture to implementation. I enjoy building solutions that improve workflows, support real users, and create practical value for businesses.
             </p>
           </div>
 
@@ -193,7 +193,7 @@ export function AboutSection() {
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-on-surface">WHAT DRIVES ME</h3>
             </div>
             <p className="text-[15px] md:text-base text-on-surface-variant leading-relaxed font-light">
-              I love solving hard problems, learning continuously, and building software that makes a difference. My goal is to create technology that&apos;s not just functional, but meaningful.
+              I&rsquo;m driven by the challenge of building systems that connect logic, usability, and real-world impact. I enjoy learning deeply, solving technical problems, and exploring how AI can help developers and teams work smarter.
             </p>
           </div>
 
