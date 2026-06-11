@@ -141,7 +141,7 @@ export function HeroSection() {
                 <span className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
               </div>
-              <span className="text-xs tracking-wide text-on-surface-variant/80 font-mono">portfolio.tsx</span>
+              <span className="text-xs tracking-wide text-on-surface-variant/80 font-mono">portfolios.tsx</span>
               <span className="w-14" />
             </div>
 
